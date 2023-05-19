@@ -14,6 +14,7 @@ import base64
 import json
 from tkinter import Tk, filedialog
 import os
+import shutil
 #import pyautogui
 #from pyscreeze import pixel
 
@@ -36,6 +37,11 @@ if not os.path.exists(configFolder):
     os.makedirs(configFolder)
 if not os.path.exists(savesFolder):
     os.makedirs(savesFolder)
+if not os.path.exists("sources/resources/"):
+    os.makedirs("sources/resources/")
+    shutil.copy("bingo_icon.bmp", "sources/resources/")
+
+    
 
 def configFileExists():
     try:
@@ -225,7 +231,6 @@ class MenuScene(Scene):
                         "numbers": numbers,
                         "currentTurn": currentTurn
                     }
-
 
                     # Encode the data as JSON and convert it to bytes
                     json_data = json.dumps(data).encode("utf-8")
