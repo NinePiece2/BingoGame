@@ -20,6 +20,7 @@ import os
 screen1 = pygame.display.set_mode((1000, 600), pygame.RESIZABLE)
 numbers = []
 currentTurn = 0
+configFolder='settings'
 configFile='settings/config.ini'
 savesFolder='saves'
 framerate = 60
@@ -30,7 +31,12 @@ base_screen_height = 600
 scale_factor_x = 1
 scale_factor_y = 1
 
-#Check if the configFile exists, if it doesn't make the config file
+#Check if the configFile and saves folder exists, if it doesn't make the config file
+if not os.path.exists(configFolder):
+    os.makedirs(configFolder)
+if not os.path.exists(savesFolder):
+    os.makedirs(savesFolder)
+
 def configFileExists():
     try:
         with open(configFile, 'r') as f:
@@ -171,7 +177,6 @@ class MenuScene(Scene):
                 elif width - 150*scale_factor_x <= mouse[0] <= width - 10*scale_factor_x and 20*scale_factor_y <= mouse[1] <= 60*scale_factor_y:
                     # choose a file from explorer to load the number snad current turn from
                     # Prompt the user to select a file
-                    from pyscreeze import pixel
 
                     current = os.getcwd()
                     file_path = filedialog.askopenfilename(initialdir=current + '/saves')
