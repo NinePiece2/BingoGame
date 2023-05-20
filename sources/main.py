@@ -12,9 +12,11 @@ import random
 import datetime
 import base64
 import json
-from tkinter import Tk, filedialog
+from tkinter import Tk, filedialog, messagebox
 import os
 import shutil
+from sys import exit
+
 #import pyautogui
 #from pyscreeze import pixel
 
@@ -39,7 +41,8 @@ if not os.path.exists(savesFolder):
     os.makedirs(savesFolder)
 if not os.path.exists("sources/resources/"):
     os.makedirs("sources/resources/")
-    shutil.copy("bingo_icon.bmp", "sources/resources/")
+    shutil.copy("bingo_icon.svg", "sources/resources/")
+    shutil.copy("bingo_icon.ico", "sources/resources/")
 
     
 
@@ -100,7 +103,7 @@ class Game:
 
         # Setting the name and logo of the window
         pygame.display.set_caption('BINGO')
-        Icon = pygame.image.load('sources/resources/bingo_icon.bmp')
+        Icon = pygame.image.load('sources/resources/bingo_icon.svg')
         pygame.display.set_icon(Icon)
         self.clock = pygame.time.Clock()
         self.scenes = []
@@ -205,8 +208,14 @@ class MenuScene(Scene):
                             global numbers, currentTurn
                             numbers = data["numbers"]
                             currentTurn = data["currentTurn"]
+
+                            Tk().wm_withdraw()
+                            messagebox.showinfo('Continue', f"Save {file_path} Loaded")
+
                         except:
                             print("Wrong File/ Data Corrupted or Tampered with")
+                            Tk().wm_withdraw()
+                            messagebox.showerror('Error', f"Wrong File/ Data Corrupted or Tampered with")
                             return
 
                     else:
@@ -243,6 +252,10 @@ class MenuScene(Scene):
                         file.write(encoded_data)
 
                     print(f"Data saved to {filename}")
+
+                    Tk().wm_withdraw()
+                    messagebox.showinfo('Continue', f"New Save Made: {filename}")
+
                 
 
 
