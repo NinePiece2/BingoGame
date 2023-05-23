@@ -28,19 +28,19 @@ The application is fairly simple to use. You can either download the source code
 
 ### How the Application Works
 
-[<img src=images/main_menu.png height=300>](images/main_menu.png)
+[<img src=images/main_menu.png height=400>](images/main_menu.png)
 
 This is the main menu of the application where users can select to play the game, see the rules, exit the game, save the game or load a previous save.
 
-[<img src=images/game_menu.png height=300>](images/game_menu.png)
+[<img src=images/game_menu.png height=400>](images/game_menu.png)
 
 This is the game menu where users can select to move to the next turn, view the previous draws and go back to the main menu.
 
-[<img src=images/used_game_menu.png height=300>](images/used_game_menu.png)
+[<img src=images/used_game_menu.png height=400>](images/used_game_menu.png)
 
 This is the game menu after the user has a few draws/turns. The user can see the previous draws and the next ball that has been drawn this turn.
 
-[<img src=images/rules_menu.png height=300>](images/rules_menu.png)
+[<img src=images/rules_menu.png height=400>](images/rules_menu.png)
 
 This is the rules menu where users can see the rules of the game.
 
