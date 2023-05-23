@@ -1,9 +1,11 @@
-/bin
 /Z_Backup
-/.vscode
 /sources/test.py
 /saves
 /settings
 /build
 /dist
 sources/resources/bingo_icon.bmp
+sources/template.py
+sources/build
+sources/saves
+sources/settings
